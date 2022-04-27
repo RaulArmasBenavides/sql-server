@@ -1,0 +1,169 @@
+USE MASTER
+
+GO
+
+CREATE LOGIN usersample WITH PASSWORD=N'trilce', DEFAULT_DATABASE = MASTER
+
+GO
+
+ALTER LOGIN usersample ENABLE
+
+GO
+
+
+
+
+--USE AdventureWorks2014
+
+GO
+
+CREATE USER rarmas FOR LOGIN usersample  WITH DEFAULT_SCHEMA = fii
+
+GO
+
+
+use EduTec 
+go
+
+
+select * from Tarifa 
+select * from CursoProgramado 
+
+select top 10 cp.IdCiclo as Ciclo,cp.IdProfesor as CodProfesor,c.IdCurso,c.NomCurso as NombreCurso,cp.Matriculados,cp.Horario 
+from CursoProgramado cp, Curso c
+where cp.idCurso = c.IdCurso
+and IdProfesor = 'P006'
+
+
+--retorna una tabla 
+create OR ALTER function dbo.CursosDictadosDocente(@codigo char(4) ,@ciclo char(7))
+returns @Dictados TABLE 
+( --columnas
+ Ciclo char(7)NOT NULL,
+ CodProfesor char(4) NOT NULL ,
+ CodCurso char(4) NOT NULL ,
+ NombreCurso varchar(50),
+ Matriculados numeric(3,0),
+ Horario varchar(30)
+)
+as 
+begin
+insert into @Dictados 
+select cp.IdCiclo as Ciclo,cp.IdProfesor as CodProfesor,c.IdCurso as CodCurso,c.NomCurso as NombreCurso,cp.Matriculados,cp.Horario 
+from CursoProgramado cp, Curso c
+where cp.idCurso = c.IdCurso
+and cp.IdProfesor = @codigo
+and cp.IdCiclo = @ciclo
+return
+end;
+go
+
+--consultamos los cursos dictados por el docente 
+select * FROM  dbo.CursosDictadosDocente('P002','2005-01')
+go
+
+
+--Desarrollar un procedimiento que permita registrar un nuevo curso
+CREATE PROCEDURE [dbo].[usp_registra_Curso]
+
+       @IdCurso                      CHAR(4), 
+       @IdTarifa                     CHAR(1),
+       @NomCurso                      VARCHAR(50)         
+AS
+INSERT INTO Curso(idCurso,IdTarifa,NomCurso) VALUES
+ (@IdCurso,@IdTarifa,@NomCurso) 
+return 0
+
+exec usp_registra_Curso 'C015','C','Python'
+
+
+
+select * From Matricula 
+
+
+CREATE PROCEDURE [dbo].[usp_registra_Curso]
+
+       @IdCurso                      CHAR(4), 
+       @IdTarifa                     CHAR(1),
+       @NomCurso                      VARCHAR(50)         
+AS
+INSERT INTO Curso(idCurso,IdTarifa,NomCurso) VALUES
+ (@IdCurso,@IdTarifa,@NomCurso) 
+return 0
+
+
+select * from Tarifa 
+
+
+CREATE OR ALTER PROCEDURE [dbo].[usp_reporte_CumplimientoCurso]
+    @IdCiclo                     CHAR(7)
+AS
+BEGIN 
+  select c.IdCurso,c.NomCurso,(cp.Vacantes +cp.Matriculados) Vacantes,cp.Matriculados,((cp.Vacantes +cp.Matriculados)* t.Horas*t.PagoHora) Ingreso_proyectado,(cp.Matriculados* t.Horas*t.PagoHora) Ingreso_real,
+  (cp.Matriculados*100/(cp.Vacantes +cp.Matriculados)) as cumplimiento
+  from CursoProgramado cp, Curso c, Tarifa t
+  where cp.idCurso = c.IdCurso
+  and t.IdTarifa = c.IdTarifa
+  and cp.IdCiclo = @IdCiclo
+END 
+return 0 
+
+create table  #Result 
+(idCurso char(4),
+ NomCurso varchar(85) NOT NULL,
+ Vacantes numeric,
+ Matriculados numeric,
+ Ingreso_proyectado numeric,
+ Ingreso_real numeric,
+ cumplimiento numeric
+ );
+
+ Insert into #Result
+EXEC [dbo].usp_reporte_CumplimientoCurso '2011-04'
+
+ select * From  #Result
+ drop table  #Result
+
+
+
+INSERT INTO @table
+EXEC usp_reporte_CumplimientoCurso '2011-04'
+
+SELECT *
+FROM @table
+end 
+
+
+
+
+
+
+
+DECLARE @sql NVARCHAR(MAX)
+DECLARE @result NVARCHAR(MAX)
+DECLARE @ParmDefinition nvarchar(500);
+DECLARE @s1 nvarchar(1000);
+SET @sql = 'select @s= @@Version' 
+SET @ParmDefinition = N'@s nvarchar(1000) OUTPUT';
+EXECUTE usp_reporte_CumplimientoCurso '1984-04'
+  @sql,
+  @ParmDefinition,
+  @S = @s1 OUTPUT;
+  Select @s1
+
+select * from OPENQUERY(localhostname , 'EXEC [usp_reporte_CumplimientoCurso] '1984-04'')
+
+
+
+select * From Matricula   
+where idAlumno ='A0001' 
+and FecMatricula> 
+
+
+
+
+
+
+
+
+
