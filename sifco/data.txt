@@ -1,0 +1,121 @@
+-- tabla marca 
+insert into marca values ('S','GGG')
+insert into marca values ('S','COO')
+insert into marca values ('S','CPP')
+insert into marca values ('S','CPW')
+insert into marca values ('S','CRE')
+insert into marca values ('S','CSN')
+insert into marca values ('S','CUR')
+insert into marca values ('S','DFE')
+insert into marca values ('S','DIT')
+insert into marca values ('N','DIS')
+insert into marca values ('N','3M')
+insert into marca values ('S','7GG')
+insert into marca values ('S','8GG')
+insert into marca values ('S','ABB')
+insert into marca values ('S','ABH')
+insert into marca values ('N','ACC')
+insert into marca values ('N','ACE')
+insert into marca values ('N','AIS')
+insert into marca values ('N','ALC')
+insert into marca values ('N','ANA')
+insert into marca values ('S','AND')
+insert into marca values ('S','AYS')
+insert into marca values ('S','BAE')
+insert into marca values ('S','BAL')
+insert into marca values ('S','BAN')
+insert into marca values ('S','BBC')
+insert into marca values ('S','BBR')
+insert into marca values ('S','BGH')
+insert into marca values ('N','CAN')
+insert into marca values ('S','CAS')
+insert into marca values ('S','CBS')
+insert into marca values ('S','CBN')
+insert into marca values ('N','CCC')
+insert into marca values ('N','PWR')
+insert into marca values ('S','PHI')
+insert into marca values ('S','PIR')
+insert into marca values ('S','POI')
+insert into marca values ('S','OSK')
+insert into marca values ('S','NIL')
+insert into marca values ('S','MZO')
+insert into marca values ('S','NAN')
+
+
+--INSERTAR DATOS A LA TABLA ARTÍCULO 
+insert into artículo  values ('Artículo 1 ', 2);
+insert into artículo  values ('Artículo 2 ', 3);
+insert into artículo  values ('Artículo 3 ', 4);
+insert into artículo  values ('Artículo 4 ', 5);
+insert into artículo  values ('Artículo 5 ', 2);
+insert into artículo  values ('Artículo 6 ', 1);
+insert into artículo  values ('Artículo 7 ', 1);
+insert into artículo  values ('Artículo 8 ', 1);
+insert into artículo  values ('Artículo 9 ', 2);
+insert into artículo  values ('Artículo 10 ',2);
+insert into artículo  values ('Artículo 11 ',3);
+
+
+--INSERTAR DATOS A LA TABLA TIPO 
+insert into tipo values ('CABLE 1'  ,   1   ,'S')
+insert into tipo values ('CABLE 2   ',  2   ,'S')
+insert into tipo values ('CABLE 3	',	3	,'S')
+insert into tipo values ('CABLE 4	',	4	,'S')
+insert into tipo values ('CABLE 5	',	5	,'S')
+insert into tipo values ('CABLE 6	',	6	,'S')
+insert into tipo values ('CABLE 7	',	7	,'S')
+insert into tipo values ('CABLE 8	',	8	,'S')
+insert into tipo values ('CABLE 9	',	9	,'S')
+insert into tipo values ('CABLE 10	',	10	,'S')
+insert into tipo values ('CABLE 11	',	11	,'S')
+insert into tipo values ('CABLE 12	',	12	,'S')
+insert into tipo values ('CABLE 13	',	13	,'S')
+insert into tipo values ('CABLE 14	',	14	,'S')
+insert into tipo values ('CABLE 15	',	15	,'S')
+insert into tipo values ('CABLE 16	',	16	,'S')
+insert into tipo values ('CABLE 17	',	17	,'S')
+insert into tipo values ('CABLE 18	',	18	,'S')
+insert into tipo values ('CABLE 19	',	19	,'S')
+insert into tipo values ('CABLE 20	',	20	,'S')
+insert into tipo values ('CABLE 21	',	21	,'S')
+insert into tipo values ('CABLE 22	',	22	,'S')
+insert into tipo values ('CABLE 23	',	23	,'S')
+insert into tipo values ('CABLE 24	',	24	,'S')
+insert into tipo values ('CABLE 25	',	25	,'S')
+insert into tipo values ('CABLE 26	',	26	,'S')
+insert into tipo values ('CABLE 27	',	27	,'S')
+insert into tipo values ('CABLE 28	',	28	,'S')
+insert into tipo values ('CABLE 29	',	29	,'S')
+insert into tipo values ('CABLE 30	',	30	,'S')
+insert into tipo values ('CABLE 31	',	31	,'S')
+insert into tipo values ('CABLE 32	',	32	,'S')
+insert into tipo values ('CABLE 33	',	33	,'S')
+insert into tipo values ('CABLE 34	',	34	,'S')
+insert into tipo values ('CABLE 35	',	35	,'S')
+insert into tipo values ('CABLE 36	',	36	,'S')
+insert into tipo values ('CABLE 37	',	37	,'S')
+insert into tipo values ('CABLE 38	',	38	,'S')
+insert into tipo values ('CABLE 39	',	39	,'S')
+insert into tipo values ('CABLE 40	',	40	,'S')
+insert into tipo values ('CABLE 41	',	41	,'S')
+
+
+
+
+
+insert into bodega values ('0001','ALMACEN PRINCIPAL','S')
+insert into bodega values ('0002','ALMACEN SJL','S')
+insert into bodega values ('0003','ALMACEN CAÑETE','S')
+insert into bodega values ('0004','ALMACEN SANTA CLARA','S')
+insert into bodega values ('0005','ALMACEN PPUENTE','S')
+insert into bodega values ('0006','R1','S')
+insert into bodega values ('0007','R2','S')
+insert into bodega values ('0008','R3','S')
+insert into bodega values ('0009','R4','S')
+insert into bodega values ('0010','R5','S')
+insert into bodega values ('0011','ALMACEN EPPS','S')
+insert into bodega values ('0012','ALMACEN PRADERAS','S')
+insert into bodega values ('0013','VENTA Y PROYECTOS','S')
+
+
+
