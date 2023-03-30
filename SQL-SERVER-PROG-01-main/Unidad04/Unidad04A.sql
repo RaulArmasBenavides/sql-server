@@ -101,22 +101,7 @@ END;
 GO
 
 
-CREATE PROCEDURE DBO.usp_ProcEjemplo2 
-AS
-BEGIN
-	SELECT * FROM TablaNoExiste;
-END;
-GO
 
-BEGIN
-BEGIN TRY 
-	EXECUTE usp_ProcEjemplo2; 
-END TRY 
-BEGIN CATCH 
-	SELECT ERROR_NUMBER() AS ErrorNumber, ERROR_MESSAGE() AS ErrorMessage; 
-END CATCH; 
-END;
-GO
 
 
 BEGIN
