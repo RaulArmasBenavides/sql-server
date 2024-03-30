@@ -33,3 +33,8 @@ Grant select , update ,insert on Proveedores to US_NEPTUNO;
   alter schema RH transfer Empleados;
  
   select * FROM INFORMATION_SCHEMA.TABLES where TABLE_CATALOG = 'Neptuno';
+
+   --creacion de sinónimos 
+ create synonym Proveedores for Logistica.Proveedores; 
+ create synonym Clientes for Comercial.Clientes;
+ create synonym Pedidos for Comercial.Pedidos;
