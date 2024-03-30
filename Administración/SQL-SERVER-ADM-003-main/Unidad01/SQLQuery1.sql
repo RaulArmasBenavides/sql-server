@@ -1,8 +1,0 @@
-
-
-
-
-select @@Version;
-go
-
-
