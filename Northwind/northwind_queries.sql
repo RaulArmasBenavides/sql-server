@@ -3,8 +3,8 @@ use Northwind
 
 
 
-select * from Products
-
+select * from [Order Details]
+EXEC sp_rename 'Order Details', 'OrderDetails';
 
 select ProductName,SupplierID,UnitPrice from Products 
 
