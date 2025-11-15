@@ -1,21 +1,5 @@
---BASE DE DATOS DE NEPTUNO
-use Neptuno
---query que muestra los login
-SELECT * FROM sys.syslogins;
 
---query que muestra los usuarios de la base de datos actual
-select top 100 * From sysusers
-
-SELECT 
-    sp.name AS LoginName,
-    dp.name AS UserName,
-    sp.type_desc AS LoginType,
-    dp.type_desc AS UserType
-FROM sys.database_principals AS dp
-INNER JOIN sys.server_principals AS sp ON dp.sid = sp.sid
-WHERE dp.type IN ('S', 'U', 'G') AND sp.type IN ('S', 'U', 'G');
-
---BASE DE DATOS DB LOGÕSTICA
+--BASE DE DATOS DB LOG√çSTICA
 use dblogistica
  
 --create login usersample with password = 'trilce'; ya existe el login
@@ -26,7 +10,7 @@ select top 100 * From sysusers
 
 Grant select , update ,insert on  sede to usersamplelogistica;
 
---en la base de datos que ya tenÌamos como logÌstica
+--en la base de datos que ya ten√≠amos como log√≠stica
 --crearemos una base de datos
  create schema Logistica authorization usersamplelogistica;
  --transferimos 
@@ -34,7 +18,7 @@ Grant select , update ,insert on  sede to usersamplelogistica;
  select * FROM INFORMATION_SCHEMA.TABLES where TABLE_CATALOG = 'dblogistica';
 
  select * from Logistica.sede 
- --creacion de sinÛnimos 
+ --creacion de sin√≥nimos 
  create synonym sede for Logistica.sede; 
  select * from sede; 
 
@@ -71,6 +55,3 @@ Grant select , update ,insert on  sede to usersamplelogistica;
   alter schema Mantenimiento transfer motor;
   alter schema Mantenimiento transfer detalle_conforservicio;
  
-
-
-
